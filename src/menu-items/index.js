@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 // sample page
 import dashboard_ from './sample/dashboard_';
-import pages_ from './sample/pages_';
 import utilities_ from './sample/utilities_';
 import other_ from './sample/other_';
 
@@ -16,7 +15,7 @@ import productManage from './productManage';
 const menuItems = {
     items: [
         dashboard, userManage, orderManage, matchManage, productManage,
-        dashboard_, pages_, utilities_, other_
+        dashboard_, utilities_, other_
     ]
 };
 
