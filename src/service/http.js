@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = process.env.SERVER_API_URL;
 const axiosInstance = axios.create({
-  baseURL: API_URL
+  baseURL: API_URL,
 });
 
 axiosInstance.defaults.timeout = 10000;
@@ -27,3 +27,5 @@ axiosInstance.interceptors.response.use(
   (response) => responseHandler(response),
   (error) => errorHandler(error)
 );
+
+export default axiosInstance;

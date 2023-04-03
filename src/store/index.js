@@ -1,10 +1,17 @@
-import { createStore } from 'redux';
-import reducer from './reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './authSlice';
+import messageReducer from './messageSlice';
+import customizationReducer from './customizationReducer';
 
-// ReduxToolkit으로
-// ==============================|| REDUX - MAIN STORE ||============================== //
+const reducer = {
+  auth: authReducer,
+  message: messageReducer,
+  customization: customizationReducer,
+};
 
-const store = createStore(reducer);
-const persister = 'Free';
+const store = configureStore({
+  reducer: reducer,
+  devTools: true,
+});
 
-export { store, persister };
+export default store;
