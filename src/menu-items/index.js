@@ -13,10 +13,7 @@ import productManage from './productManage';
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [
-        dashboard, userManage, orderManage, matchManage, productManage,
-        dashboard_, utilities_, other_
-    ]
+  items: [dashboard, userManage, orderManage, matchManage, productManage, dashboard_, utilities_, other_]
 };
 
 export default menuItems;

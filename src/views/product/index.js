@@ -7,9 +7,9 @@ import MainCard from 'ui-component/cards/MainCard';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const ProductPage = () => (
-    <MainCard title="ProductPage">
-        <Typography variant="body2">ProductPage</Typography>
-    </MainCard>
+  <MainCard title="ProductPage">
+    <Typography variant="body2">ProductPage</Typography>
+  </MainCard>
 );
 
 export default ProductPage;
