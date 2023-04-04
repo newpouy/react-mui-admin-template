@@ -1,31 +1,38 @@
 import axios from 'axios'
 
-const API_URL = process.env.SERVER_API_URL
-const axiosInstance = axios.create({
-  baseURL: API_URL,
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  transformRequest: [
+    (data) => {
+      return JSON.stringify(data)
+    },
+  ],
+  transformResponse: [
+    (data) => {
+      return JSON.parse(data)
+    },
+  ],
 })
 
-axiosInstance.defaults.timeout = 10000
+const token = localStorage.getItem('token')
+api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
-
-const requestHandler = (request) => {
-  const token = localStorage.get('token')
-  request.headers.Authorization = token ? `Bearer ${token}` : ``
+api.interceptors.request.use((request) => {
+  console.log('in request interceptor', request)
   return request
+})
+
+const responserHandler = (response) => {
+  console.log('in response interceptor', response)
+  return response
 }
 
-const responseHandler = (response) => {
-  axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.headers.authorization}`
-  return response.data
+const errorHandler = (error) => {
+  console.log('in error handle')
 }
-const errorHandler = (error) => {}
+api.interceptors.response.use(responserHandler, errorHandler)
 
-axiosInstance.interceptors.request.use((request) => requestHandler(request))
-
-axiosInstance.interceptors.response.use(
-  (response) => responseHandler(response),
-  (error) => errorHandler(error),
-)
-
-export default axiosInstance
+export default api

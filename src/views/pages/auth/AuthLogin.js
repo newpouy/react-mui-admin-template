@@ -50,7 +50,7 @@ const AuthLogin = ({ ...others }) => {
       <Formik
         initialValues={{
           email: 'info@tikitakalab.co.kr',
-          password: '123456',
+          password: '1234567890',
           submit: null,
         }}
         validationSchema={Yup.object().shape({
@@ -59,7 +59,7 @@ const AuthLogin = ({ ...others }) => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           alert('hihihi')
-          dispatch(loginAction({ username: 'hi', password: 'fsa' }))
+          dispatch(loginAction({ username: values.email, password: values.password }))
           try {
             if (scriptedRef.current) {
               setStatus({ success: true })

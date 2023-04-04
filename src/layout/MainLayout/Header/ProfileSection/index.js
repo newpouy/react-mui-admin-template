@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 // material-ui
 import { useTheme } from '@mui/material/styles'
@@ -37,10 +37,10 @@ import User1 from 'assets/images/tikitaka_symbol.jpg'
 
 // assets
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons'
-
-// ==============================|| PROFILE MENU ||============================== //
+import { logoutAction } from 'store/authSlice'
 
 const ProfileSection = () => {
+  const dispatch = useDispatch()
   const theme = useTheme()
   const customization = useSelector((state) => state.customization)
   const navigate = useNavigate()
@@ -56,6 +56,7 @@ const ProfileSection = () => {
   const anchorRef = useRef(null)
   const handleLogout = async () => {
     console.log('Logout')
+    dispatch(logoutAction())
     navigate('/login')
   }
 

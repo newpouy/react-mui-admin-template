@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 
@@ -16,6 +17,7 @@ import { SET_MENU } from 'store/actions'
 
 // assets
 import { IconChevronRight } from '@tabler/icons'
+import { getMeInfoAction } from 'store/authSlice'
 
 // styles
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
@@ -72,7 +74,12 @@ const MainLayout = () => {
   const handleLeftDrawerToggle = () => {
     dispatch({ type: SET_MENU, opened: !leftDrawerOpened })
   }
-
+  const getMeInfo = () => {
+    dispatch(getMeInfoAction())
+  }
+  useEffect(() => {
+    getMeInfo()
+  }, [])
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
