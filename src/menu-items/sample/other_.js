@@ -1,8 +1,8 @@
 // assets
-import { IconBrandChrome, IconHelp } from '@tabler/icons';
+import { IconBrandChrome, IconHelp } from '@tabler/icons'
 
 // constant
-const icons = { IconBrandChrome, IconHelp };
+const icons = { IconBrandChrome, IconHelp }
 
 // ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //
 
@@ -16,9 +16,9 @@ const other = {
       type: 'item',
       url: '/sample/sample-page',
       icon: icons.IconBrandChrome,
-      breadcrumbs: false
-    }
-  ]
-};
+      breadcrumbs: false,
+    },
+  ],
+}
 
-export default other;
+export default other

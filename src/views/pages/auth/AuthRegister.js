@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 import {
   Box,
   Button,
@@ -19,57 +19,57 @@ import {
   OutlinedInput,
   TextField,
   Typography,
-  useMediaQuery
-} from '@mui/material';
+  useMediaQuery,
+} from '@mui/material'
 
 // third party
-import * as Yup from 'yup';
-import { Formik } from 'formik';
+import * as Yup from 'yup'
+import { Formik } from 'formik'
 
 // project imports
-import useScriptRef from 'hooks/useScriptRef';
-import Google from 'assets/images/icons/social-google.svg';
-import AnimateButton from 'ui-component/extended/AnimateButton';
-import { strengthColor, strengthIndicator } from 'utils/password-strength';
+import useScriptRef from 'hooks/useScriptRef'
+import Google from 'assets/images/icons/social-google.svg'
+import AnimateButton from 'ui-component/extended/AnimateButton'
+import { strengthColor, strengthIndicator } from 'utils/password-strength'
 
 // assets
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const FirebaseRegister = ({ ...others }) => {
-  const theme = useTheme();
-  const scriptedRef = useScriptRef();
-  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector((state) => state.customization);
-  const [showPassword, setShowPassword] = useState(false);
-  const [checked, setChecked] = useState(true);
+  const theme = useTheme()
+  const scriptedRef = useScriptRef()
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'))
+  const customization = useSelector((state) => state.customization)
+  const [showPassword, setShowPassword] = useState(false)
+  const [checked, setChecked] = useState(true)
 
-  const [strength, setStrength] = useState(0);
-  const [level, setLevel] = useState();
+  const [strength, setStrength] = useState(0)
+  const [level, setLevel] = useState()
 
   const googleHandler = async () => {
-    console.error('Register');
-  };
+    console.error('Register')
+  }
 
   const handleClickShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   const changePassword = (value) => {
-    const temp = strengthIndicator(value);
-    setStrength(temp);
-    setLevel(strengthColor(temp));
-  };
+    const temp = strengthIndicator(value)
+    setStrength(temp)
+    setLevel(strengthColor(temp))
+  }
 
   useEffect(() => {
-    changePassword('123456');
-  }, []);
+    changePassword('123456')
+  }, [])
 
   return (
     <>
@@ -84,7 +84,7 @@ const FirebaseRegister = ({ ...others }) => {
               sx={{
                 color: 'grey.700',
                 backgroundColor: theme.palette.grey[50],
-                borderColor: theme.palette.grey[100]
+                borderColor: theme.palette.grey[100],
               }}
             >
               <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
@@ -107,7 +107,7 @@ const FirebaseRegister = ({ ...others }) => {
                 borderColor: `${theme.palette.grey[100]} !important`,
                 color: `${theme.palette.grey[900]}!important`,
                 fontWeight: 500,
-                borderRadius: `${customization.borderRadius}px`
+                borderRadius: `${customization.borderRadius}px`,
               }}
               disableRipple
               disabled
@@ -128,24 +128,24 @@ const FirebaseRegister = ({ ...others }) => {
         initialValues={{
           email: '',
           password: '',
-          submit: null
+          submit: null,
         }}
         validationSchema={Yup.object().shape({
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-          password: Yup.string().max(255).required('Password is required')
+          password: Yup.string().max(255).required('Password is required'),
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             if (scriptedRef.current) {
-              setStatus({ success: true });
-              setSubmitting(false);
+              setStatus({ success: true })
+              setSubmitting(false)
             }
           } catch (err) {
-            console.error(err);
+            console.error(err)
             if (scriptedRef.current) {
-              setStatus({ success: false });
-              setErrors({ submit: err.message });
-              setSubmitting(false);
+              setStatus({ success: false })
+              setErrors({ submit: err.message })
+              setSubmitting(false)
             }
           }
         }}
@@ -204,8 +204,8 @@ const FirebaseRegister = ({ ...others }) => {
                 label="Password"
                 onBlur={handleBlur}
                 onChange={(e) => {
-                  handleChange(e);
-                  changePassword(e.target.value);
+                  handleChange(e)
+                  changePassword(e.target.value)
                 }}
                 endAdornment={
                   <InputAdornment position="end">
@@ -280,7 +280,7 @@ const FirebaseRegister = ({ ...others }) => {
         )}
       </Formik>
     </>
-  );
-};
+  )
+}
 
-export default FirebaseRegister;
+export default FirebaseRegister

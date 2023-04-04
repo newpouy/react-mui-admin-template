@@ -1,8 +1,8 @@
 // assets
-import { IconUsers } from '@tabler/icons';
+import { IconUsers } from '@tabler/icons'
 
 // constant
-const icons = { IconUsers };
+const icons = { IconUsers }
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
@@ -17,9 +17,9 @@ const userManage = {
       type: 'item',
       url: '/user',
       icon: icons.IconUsers,
-      breadcrumbs: false
-    }
-  ]
-};
+      breadcrumbs: false,
+    },
+  ],
+}
 
-export default userManage;
+export default userManage

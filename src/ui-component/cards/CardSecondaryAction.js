@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import { ButtonBase, Link, Tooltip } from '@mui/material';
+import PropTypes from 'prop-types'
+import { useTheme } from '@mui/material/styles'
+import { ButtonBase, Link, Tooltip } from '@mui/material'
 
 // project imports
-import Avatar from '../extended/Avatar';
+import Avatar from '../extended/Avatar'
 
 // ==============================|| CARD SECONDARY ACTION ||============================== //
 
 const CardSecondaryAction = ({ title, link, icon }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Tooltip title={title || 'Reference'} placement="left">
@@ -43,13 +43,13 @@ const CardSecondaryAction = ({ title, link, icon }) => {
         )}
       </ButtonBase>
     </Tooltip>
-  );
-};
+  )
+}
 
 CardSecondaryAction.propTypes = {
   icon: PropTypes.node,
   link: PropTypes.string,
-  title: PropTypes.string
-};
+  title: PropTypes.string,
+}
 
-export default CardSecondaryAction;
+export default CardSecondaryAction

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 import {
   Box,
   Button,
@@ -17,33 +17,33 @@ import {
   Stack,
   Typography,
   useMediaQuery,
-} from '@mui/material';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+} from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
-import * as Yup from 'yup';
-import { Formik } from 'formik';
+import * as Yup from 'yup'
+import { Formik } from 'formik'
 
-import useScriptRef from 'hooks/useScriptRef';
-import AnimateButton from 'ui-component/extended/AnimateButton';
-import { loginAction } from 'store/authSlice';
+import useScriptRef from 'hooks/useScriptRef'
+import AnimateButton from 'ui-component/extended/AnimateButton'
+import { loginAction } from 'store/authSlice'
 
 const AuthLogin = ({ ...others }) => {
-  const dispatch = useDispatch();
-  const theme = useTheme();
-  const scriptedRef = useScriptRef();
-  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector((state) => state.customization);
-  const [checked, setChecked] = useState(true);
+  const dispatch = useDispatch()
+  const theme = useTheme()
+  const scriptedRef = useScriptRef()
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'))
+  const customization = useSelector((state) => state.customization)
+  const [checked, setChecked] = useState(true)
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
   const handleClickShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   return (
     <>
@@ -58,19 +58,19 @@ const AuthLogin = ({ ...others }) => {
           password: Yup.string().max(255).required('Password is required'),
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-          alert('hihihi');
-          dispatch(loginAction({ username: 'hi', password: 'fsa'}));
+          alert('hihihi')
+          dispatch(loginAction({ username: 'hi', password: 'fsa' }))
           try {
             if (scriptedRef.current) {
-              setStatus({ success: true });
-              setSubmitting(false);
+              setStatus({ success: true })
+              setSubmitting(false)
             }
           } catch (err) {
-            console.error(err);
+            console.error(err)
             if (scriptedRef.current) {
-              setStatus({ success: false });
-              setErrors({ submit: err.message });
-              setSubmitting(false);
+              setStatus({ success: false })
+              setErrors({ submit: err.message })
+              setSubmitting(false)
             }
           }
         }}
@@ -155,7 +155,7 @@ const AuthLogin = ({ ...others }) => {
         )}
       </Formik>
     </>
-  );
-};
+  )
+}
 
-export default AuthLogin;
+export default AuthLogin

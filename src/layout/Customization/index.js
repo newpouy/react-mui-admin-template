@@ -1,92 +1,80 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import {
-  Drawer,
-  Fab,
-  FormControl,
-  FormControlLabel,
-  Grid,
-  IconButton,
-  Radio,
-  RadioGroup,
-  Slider,
-  Tooltip,
-  Typography
-} from '@mui/material';
-import { IconSettings } from '@tabler/icons';
+import { useTheme } from '@mui/material/styles'
+import { Drawer, Fab, FormControl, FormControlLabel, Grid, IconButton, Radio, RadioGroup, Slider, Tooltip, Typography } from '@mui/material'
+import { IconSettings } from '@tabler/icons'
 
 // third-party
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // project imports
-import SubCard from 'ui-component/cards/SubCard';
-import AnimateButton from 'ui-component/extended/AnimateButton';
-import { SET_BORDER_RADIUS, SET_FONT_FAMILY } from 'store/actions';
-import { gridSpacing } from 'store/constant';
+import SubCard from 'ui-component/cards/SubCard'
+import AnimateButton from 'ui-component/extended/AnimateButton'
+import { SET_BORDER_RADIUS, SET_FONT_FAMILY } from 'store/actions'
+import { gridSpacing } from 'store/constant'
 
 // concat 'px'
 function valueText(value) {
-  return `${value}px`;
+  return `${value}px`
 }
 
 // ==============================|| LIVE CUSTOMIZATION ||============================== //
 
 const Customization = () => {
-  const theme = useTheme();
-  const dispatch = useDispatch();
-  const customization = useSelector((state) => state.customization);
+  const theme = useTheme()
+  const dispatch = useDispatch()
+  const customization = useSelector((state) => state.customization)
 
   // drawer on/off
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   const handleToggle = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
   // state - border radius
-  const [borderRadius, setBorderRadius] = useState(customization.borderRadius);
+  const [borderRadius, setBorderRadius] = useState(customization.borderRadius)
   const handleBorderRadius = (event, newValue) => {
-    setBorderRadius(newValue);
-  };
+    setBorderRadius(newValue)
+  }
 
   useEffect(() => {
-    dispatch({ type: SET_BORDER_RADIUS, borderRadius });
-  }, [dispatch, borderRadius]);
+    dispatch({ type: SET_BORDER_RADIUS, borderRadius })
+  }, [dispatch, borderRadius])
 
-  let initialFont;
+  let initialFont
   switch (customization.fontFamily) {
     case `'Inter', sans-serif`:
-      initialFont = 'Inter';
-      break;
+      initialFont = 'Inter'
+      break
     case `'Poppins', sans-serif`:
-      initialFont = 'Poppins';
-      break;
+      initialFont = 'Poppins'
+      break
     case `'Roboto', sans-serif`:
     default:
-      initialFont = 'Roboto';
-      break;
+      initialFont = 'Roboto'
+      break
   }
 
   // state - font family
-  const [fontFamily, setFontFamily] = useState(initialFont);
+  const [fontFamily, setFontFamily] = useState(initialFont)
   useEffect(() => {
-    let newFont;
+    let newFont
     switch (fontFamily) {
       case 'Inter':
-        newFont = `'Inter', sans-serif`;
-        break;
+        newFont = `'Inter', sans-serif`
+        break
       case 'Poppins':
-        newFont = `'Poppins', sans-serif`;
-        break;
+        newFont = `'Poppins', sans-serif`
+        break
       case 'Roboto':
       default:
-        newFont = `'Roboto', sans-serif`;
-        break;
+        newFont = `'Roboto', sans-serif`
+        break
     }
-    dispatch({ type: SET_FONT_FAMILY, fontFamily: newFont });
-  }, [dispatch, fontFamily]);
+    dispatch({ type: SET_FONT_FAMILY, fontFamily: newFont })
+  }, [dispatch, fontFamily])
 
   return (
     <>
@@ -107,7 +95,7 @@ const Customization = () => {
             top: '25%',
             position: 'fixed',
             right: 10,
-            zIndex: theme.zIndex.speedDial
+            zIndex: theme.zIndex.speedDial,
           }}
         >
           <AnimateButton type="rotate">
@@ -124,8 +112,8 @@ const Customization = () => {
         open={open}
         PaperProps={{
           sx: {
-            width: 280
-          }
+            width: 280,
+          },
         }}
       >
         <PerfectScrollbar component="div">
@@ -146,7 +134,7 @@ const Customization = () => {
                       label="Roboto"
                       sx={{
                         '& .MuiSvgIcon-root': { fontSize: 28 },
-                        '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
+                        '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] },
                       }}
                     />
                     <FormControlLabel
@@ -155,7 +143,7 @@ const Customization = () => {
                       label="Poppins"
                       sx={{
                         '& .MuiSvgIcon-root': { fontSize: 28 },
-                        '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
+                        '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] },
                       }}
                     />
                     <FormControlLabel
@@ -164,7 +152,7 @@ const Customization = () => {
                       label="Inter"
                       sx={{
                         '& .MuiSvgIcon-root': { fontSize: 28 },
-                        '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
+                        '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] },
                       }}
                     />
                   </RadioGroup>
@@ -195,8 +183,8 @@ const Customization = () => {
                       color="secondary"
                       sx={{
                         '& .MuiSlider-valueLabel': {
-                          color: 'secondary.light'
-                        }
+                          color: 'secondary.light',
+                        },
                       }}
                     />
                   </Grid>
@@ -212,7 +200,7 @@ const Customization = () => {
         </PerfectScrollbar>
       </Drawer>
     </>
-  );
-};
+  )
+}
 
-export default Customization;
+export default Customization

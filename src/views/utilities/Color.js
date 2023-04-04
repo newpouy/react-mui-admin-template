@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // material-ui
-import { Box, Card, Grid, Typography } from '@mui/material';
+import { Box, Card, Grid, Typography } from '@mui/material'
 
 // project imports
-import SubCard from 'ui-component/cards/SubCard';
-import MainCard from 'ui-component/cards/MainCard';
-import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
-import { gridSpacing } from 'store/constant';
+import SubCard from 'ui-component/cards/SubCard'
+import MainCard from 'ui-component/cards/MainCard'
+import SecondaryAction from 'ui-component/cards/CardSecondaryAction'
+import { gridSpacing } from 'store/constant'
 
 // ===============================|| COLOR BOX ||=============================== //
 
@@ -21,7 +21,7 @@ const ColorBox = ({ bgcolor, title, data, dark }) => (
           alignItems: 'center',
           py: 4.5,
           bgcolor,
-          color: dark ? 'grey.800' : '#ffffff'
+          color: dark ? 'grey.800' : '#ffffff',
         }}
       >
         {title && (
@@ -45,14 +45,14 @@ const ColorBox = ({ bgcolor, title, data, dark }) => (
       </Grid>
     )}
   </>
-);
+)
 
 ColorBox.propTypes = {
   bgcolor: PropTypes.string,
   title: PropTypes.string,
   data: PropTypes.object.isRequired,
-  dark: PropTypes.bool
-};
+  dark: PropTypes.bool,
+}
 
 // ===============================|| UI COLOR ||=============================== //
 
@@ -199,6 +199,6 @@ const UIColor = () => (
       </Grid>
     </Grid>
   </MainCard>
-);
+)
 
-export default UIColor;
+export default UIColor

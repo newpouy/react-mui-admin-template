@@ -1,10 +1,10 @@
 // project imports
-import MainLayout from 'layout/MainLayout';
-import DashboardDefault from 'views/dashboard/Default';
-import UserPage from 'views/user';
-import OrderPage from 'views/order';
-import MatchPage from 'views/match';
-import ProductPage from 'views/product';
+import MainLayout from 'layout/MainLayout'
+import DashboardDefault from 'views/dashboard/Default'
+import UserPage from 'views/user'
+import OrderPage from 'views/order'
+import MatchPage from 'views/match'
+import ProductPage from 'views/product'
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -14,20 +14,20 @@ const mainRoutes = {
   children: [
     {
       path: 'dashboard',
-      element: <DashboardDefault />
+      element: <DashboardDefault />,
     },
     {
       path: 'user',
-      element: <UserPage />
+      element: <UserPage />,
     },
     {
       path: 'user',
       children: [
         {
           path: 'list',
-          element: <UserPage />
-        }
-      ]
+          element: <UserPage />,
+        },
+      ],
     },
     {
       path: 'order',
@@ -35,9 +35,9 @@ const mainRoutes = {
       children: [
         {
           path: 'list',
-          element: <OrderPage />
-        }
-      ]
+          element: <OrderPage />,
+        },
+      ],
     },
     {
       path: 'match',
@@ -45,9 +45,9 @@ const mainRoutes = {
       children: [
         {
           path: 'list',
-          element: <MatchPage />
-        }
-      ]
+          element: <MatchPage />,
+        },
+      ],
     },
     {
       path: 'product',
@@ -55,11 +55,11 @@ const mainRoutes = {
       children: [
         {
           path: 'list',
-          element: <ProductPage />
-        }
-      ]
-    }
-  ]
-};
+          element: <ProductPage />,
+        },
+      ],
+    },
+  ],
+}
 
-export default mainRoutes;
+export default mainRoutes

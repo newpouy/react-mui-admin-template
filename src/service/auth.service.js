@@ -1,12 +1,12 @@
-import http from './http';
+import http from './http'
 
 const register = (username, email, password) => {
   return http.post('signup', {
     username,
     email,
     password,
-  });
-};
+  })
+}
 
 const login = (username, password) => {
   return http
@@ -16,21 +16,21 @@ const login = (username, password) => {
     })
     .then((response) => {
       if (response.data.accessToken) {
-        localStorage.setItem('user', JSON.stringify(response.data));
+        localStorage.setItem('user', JSON.stringify(response.data))
       }
 
-      return response.data;
-    });
-};
+      return response.data
+    })
+}
 
 const logout = () => {
-  localStorage.removeItem('user');
-};
+  localStorage.removeItem('user')
+}
 
 const authService = {
   register,
   login,
   logout,
-};
+}
 
-export default authService;
+export default authService

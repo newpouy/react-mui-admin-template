@@ -1,23 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles'
+import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material'
 
 // project imports
-import AuthWrapper1 from './pages/auth/AuthWrapper1';
-import AuthCardWrapper from './pages/auth/AuthCardWrapper';
-import Logo from 'ui-component/Logo';
-import AuthRegister from './pages/auth/AuthRegister';
-import AuthFooter from 'ui-component/cards/AuthFooter';
+import AuthWrapper1 from './pages/auth/AuthWrapper1'
+import AuthCardWrapper from './pages/auth/AuthCardWrapper'
+import Logo from 'ui-component/Logo'
+import AuthRegister from './pages/auth/AuthRegister'
+import AuthFooter from 'ui-component/cards/AuthFooter'
 
 // assets
 
 // ===============================|| AUTH3 - REGISTER ||=============================== //
 
 const Register = () => {
-  const theme = useTheme();
-  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+  const theme = useTheme()
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
     <AuthWrapper1>
@@ -69,7 +69,7 @@ const Register = () => {
         </Grid>
       </Grid>
     </AuthWrapper1>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

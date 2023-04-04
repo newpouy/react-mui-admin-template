@@ -1,5 +1,5 @@
 const Logo = () => {
-  return <>TIKITAKALAB</>;
-};
+  return <>TIKITAKALAB</>
+}
 
-export default Logo;
+export default Logo

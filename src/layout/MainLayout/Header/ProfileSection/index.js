@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react'
 
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 import {
   Avatar,
   Box,
@@ -24,68 +24,68 @@ import {
   Popper,
   Stack,
   Switch,
-  Typography
-} from '@mui/material';
+  Typography,
+} from '@mui/material'
 
 // third-party
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import Transitions from 'ui-component/extended/Transitions';
-import User1 from 'assets/images/tikitaka_symbol.jpg';
+import MainCard from 'ui-component/cards/MainCard'
+import Transitions from 'ui-component/extended/Transitions'
+import User1 from 'assets/images/tikitaka_symbol.jpg'
 
 // assets
-import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
+import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons'
 
 // ==============================|| PROFILE MENU ||============================== //
 
 const ProfileSection = () => {
-  const theme = useTheme();
-  const customization = useSelector((state) => state.customization);
-  const navigate = useNavigate();
+  const theme = useTheme()
+  const customization = useSelector((state) => state.customization)
+  const navigate = useNavigate()
 
-  const [sdm, setSdm] = useState(true);
-  const [value, setValue] = useState('');
-  const [notification, setNotification] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [open, setOpen] = useState(false);
+  const [sdm, setSdm] = useState(true)
+  const [value, setValue] = useState('')
+  const [notification, setNotification] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(-1)
+  const [open, setOpen] = useState(false)
   /**
    * anchorRef is used on different componets and specifying one type leads to other components throwing an error
    * */
-  const anchorRef = useRef(null);
+  const anchorRef = useRef(null)
   const handleLogout = async () => {
-    console.log('Logout');
-    navigate('/login');
-  };
+    console.log('Logout')
+    navigate('/login')
+  }
 
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
+      return
     }
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const handleListItemClick = (event, index, route = '') => {
-    setSelectedIndex(index);
-    handleClose(event);
+    setSelectedIndex(index)
+    handleClose(event)
 
     if (route && route !== '') {
-      navigate(route);
+      navigate(route)
     }
-  };
+  }
   const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
+    setOpen((prevOpen) => !prevOpen)
+  }
 
-  const prevOpen = useRef(open);
+  const prevOpen = useRef(open)
   useEffect(() => {
     if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
+      anchorRef.current.focus()
     }
 
-    prevOpen.current = open;
-  }, [open]);
+    prevOpen.current = open
+  }, [open])
 
   return (
     <>
@@ -102,12 +102,12 @@ const ProfileSection = () => {
             background: `${theme.palette.primary.main}!important`,
             color: theme.palette.primary.light,
             '& svg': {
-              stroke: theme.palette.primary.light
-            }
+              stroke: theme.palette.primary.light,
+            },
           },
           '& .MuiChip-label': {
-            lineHeight: 0
-          }
+            lineHeight: 0,
+          },
         }}
         icon={
           <Avatar
@@ -115,7 +115,7 @@ const ProfileSection = () => {
             sx={{
               ...theme.typography.mediumAvatar,
               margin: '8px 0 8px 8px !important',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
             ref={anchorRef}
             aria-controls={open ? 'menu-list-grow' : undefined}
@@ -143,10 +143,10 @@ const ProfileSection = () => {
             {
               name: 'offset',
               options: {
-                offset: [0, 14]
-              }
-            }
-          ]
+                offset: [0, 14],
+              },
+            },
+          ],
         }}
       >
         {({ TransitionProps }) => (
@@ -177,7 +177,7 @@ const ProfileSection = () => {
                       }
                       aria-describedby="search-helper-text"
                       inputProps={{
-                        'aria-label': 'weight'
+                        'aria-label': 'weight',
                       }}
                     />
                     <Divider />
@@ -188,7 +188,7 @@ const ProfileSection = () => {
                       <Card
                         sx={{
                           bgcolor: theme.palette.primary.light,
-                          my: 2
+                          my: 2,
                         }}
                       >
                         <CardContent>
@@ -237,11 +237,11 @@ const ProfileSection = () => {
                           backgroundColor: theme.palette.background.paper,
                           borderRadius: '10px',
                           [theme.breakpoints.down('md')]: {
-                            minWidth: '100%'
+                            minWidth: '100%',
                           },
                           '& .MuiListItemButton-root': {
-                            mt: 0.5
-                          }
+                            mt: 0.5,
+                          },
                         }}
                       >
                         <ListItemButton
@@ -274,7 +274,7 @@ const ProfileSection = () => {
                                     size="small"
                                     sx={{
                                       bgcolor: theme.palette.warning.dark,
-                                      color: theme.palette.background.default
+                                      color: theme.palette.background.default,
                                     }}
                                   />
                                 </Grid>
@@ -302,7 +302,7 @@ const ProfileSection = () => {
         )}
       </Popper>
     </>
-  );
-};
+  )
+}
 
-export default ProfileSection;
+export default ProfileSection

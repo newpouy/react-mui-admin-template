@@ -1,13 +1,13 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons';
+import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons'
 
 // constant
 const icons = {
   IconTypography,
   IconPalette,
   IconShadow,
-  IconWindmill
-};
+  IconWindmill,
+}
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
 
@@ -22,7 +22,7 @@ const utilities = {
       type: 'item',
       url: '/sample/utils/util-typography',
       icon: icons.IconTypography,
-      breadcrumbs: false
+      breadcrumbs: false,
     },
     {
       id: 'util-color',
@@ -30,7 +30,7 @@ const utilities = {
       type: 'item',
       url: '/sample/utils/util-color',
       icon: icons.IconPalette,
-      breadcrumbs: false
+      breadcrumbs: false,
     },
     {
       id: 'util-shadow',
@@ -38,7 +38,7 @@ const utilities = {
       type: 'item',
       url: '/sample/utils/util-shadow',
       icon: icons.IconShadow,
-      breadcrumbs: false
+      breadcrumbs: false,
     },
     {
       id: 'icons',
@@ -51,18 +51,18 @@ const utilities = {
           title: 'Tabler Icons',
           type: 'item',
           url: '/sample/icons/tabler-icons',
-          breadcrumbs: false
+          breadcrumbs: false,
         },
         {
           id: 'material-icons',
           title: 'Material Icons',
           type: 'item',
           url: '/sample/icons/material-icons',
-          breadcrumbs: false
-        }
-      ]
-    }
-  ]
-};
+          breadcrumbs: false,
+        },
+      ],
+    },
+  ],
+}
 
-export default utilities;
+export default utilities

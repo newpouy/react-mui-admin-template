@@ -1,8 +1,8 @@
 // material-ui
-import { CardContent, Grid, Skeleton, Stack } from '@mui/material';
+import { CardContent, Grid, Skeleton, Stack } from '@mui/material'
 
 // project import
-import MainCard from '../MainCard';
+import MainCard from '../MainCard'
 
 // ===========================|| SKELETON TOTAL GROWTH BAR CHART ||=========================== //
 
@@ -39,6 +39,6 @@ const ProductPlaceholder = () => (
       </Grid>
     </CardContent>
   </MainCard>
-);
+)
 
-export default ProductPlaceholder;
+export default ProductPlaceholder

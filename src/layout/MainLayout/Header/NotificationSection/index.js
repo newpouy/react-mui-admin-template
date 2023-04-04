@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 import {
   Avatar,
   Box,
@@ -18,75 +18,75 @@ import {
   Stack,
   TextField,
   Typography,
-  useMediaQuery
-} from '@mui/material';
+  useMediaQuery,
+} from '@mui/material'
 
 // third-party
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import Transitions from 'ui-component/extended/Transitions';
-import NotificationList from './NotificationList';
+import MainCard from 'ui-component/cards/MainCard'
+import Transitions from 'ui-component/extended/Transitions'
+import NotificationList from './NotificationList'
 
 // assets
-import { IconBell } from '@tabler/icons';
+import { IconBell } from '@tabler/icons'
 
 // notification status options
 const status = [
   {
     value: 'all',
-    label: 'All Notification'
+    label: 'All Notification',
   },
   {
     value: 'new',
-    label: 'New'
+    label: 'New',
   },
   {
     value: 'unread',
-    label: 'Unread'
+    label: 'Unread',
   },
   {
     value: 'other',
-    label: 'Other'
-  }
-];
+    label: 'Other',
+  },
+]
 
 // ==============================|| NOTIFICATION ||============================== //
 
 const NotificationSection = () => {
-  const theme = useTheme();
-  const matchesXs = useMediaQuery(theme.breakpoints.down('md'));
+  const theme = useTheme()
+  const matchesXs = useMediaQuery(theme.breakpoints.down('md'))
 
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState('')
   /**
    * anchorRef is used on different componets and specifying one type leads to other components throwing an error
    * */
-  const anchorRef = useRef(null);
+  const anchorRef = useRef(null)
 
   const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
+    setOpen((prevOpen) => !prevOpen)
+  }
 
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
+      return
     }
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
-  const prevOpen = useRef(open);
+  const prevOpen = useRef(open)
   useEffect(() => {
     if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
+      anchorRef.current.focus()
     }
-    prevOpen.current = open;
-  }, [open]);
+    prevOpen.current = open
+  }, [open])
 
   const handleChange = (event) => {
-    if (event?.target.value) setValue(event?.target.value);
-  };
+    if (event?.target.value) setValue(event?.target.value)
+  }
 
   return (
     <>
@@ -95,8 +95,8 @@ const NotificationSection = () => {
           ml: 2,
           mr: 3,
           [theme.breakpoints.down('md')]: {
-            mr: 2
-          }
+            mr: 2,
+          },
         }}
       >
         <ButtonBase sx={{ borderRadius: '12px' }}>
@@ -110,8 +110,8 @@ const NotificationSection = () => {
               color: theme.palette.secondary.dark,
               '&[aria-controls="menu-list-grow"],&:hover': {
                 background: theme.palette.secondary.dark,
-                color: theme.palette.secondary.light
-              }
+                color: theme.palette.secondary.light,
+              },
             }}
             ref={anchorRef}
             aria-controls={open ? 'menu-list-grow' : undefined}
@@ -135,10 +135,10 @@ const NotificationSection = () => {
             {
               name: 'offset',
               options: {
-                offset: [matchesXs ? 5 : 0, 20]
-              }
-            }
-          ]
+                offset: [matchesXs ? 5 : 0, 20],
+              },
+            },
+          ],
         }}
       >
         {({ TransitionProps }) => (
@@ -157,7 +157,7 @@ const NotificationSection = () => {
                               label="01"
                               sx={{
                                 color: theme.palette.background.default,
-                                bgcolor: theme.palette.warning.dark
+                                bgcolor: theme.palette.warning.dark,
                               }}
                             />
                           </Stack>
@@ -181,7 +181,7 @@ const NotificationSection = () => {
                                 value={value}
                                 onChange={handleChange}
                                 SelectProps={{
-                                  native: true
+                                  native: true,
                                 }}
                               >
                                 {status.map((option) => (
@@ -213,7 +213,7 @@ const NotificationSection = () => {
         )}
       </Popper>
     </>
-  );
-};
+  )
+}
 
-export default NotificationSection;
+export default NotificationSection

@@ -1,8 +1,8 @@
 // assets
-import { IconShoppingCart } from '@tabler/icons';
+import { IconShoppingCart } from '@tabler/icons'
 
 // constant
-const icons = { IconShoppingCart };
+const icons = { IconShoppingCart }
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
@@ -17,9 +17,9 @@ const orderManage = {
       type: 'item',
       url: '/order',
       icon: icons.IconShoppingCart,
-      breadcrumbs: false
-    }
-  ]
-};
+      breadcrumbs: false,
+    },
+  ],
+}
 
-export default orderManage;
+export default orderManage

@@ -1,8 +1,8 @@
 // assets
-import { IconHeart } from '@tabler/icons';
+import { IconHeart } from '@tabler/icons'
 
 // constant
-const icons = { IconHeart };
+const icons = { IconHeart }
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
@@ -17,9 +17,9 @@ const matchManage = {
       type: 'item',
       url: '/match',
       icon: icons.IconHeart,
-      breadcrumbs: false
-    }
-  ]
-};
+      breadcrumbs: false,
+    },
+  ],
+}
 
-export default matchManage;
+export default matchManage

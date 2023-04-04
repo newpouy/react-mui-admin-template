@@ -1,36 +1,36 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import { Card, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles'
+import { Card, Grid, Typography } from '@mui/material'
 
 // third-party
-import ApexCharts from 'apexcharts';
-import Chart from 'react-apexcharts';
+import ApexCharts from 'apexcharts'
+import Chart from 'react-apexcharts'
 
 // project imports
-import chartData from './chart-data/bajaj-area-chart';
+import chartData from './chart-data/bajaj-area-chart'
 
 // ===========================|| DASHBOARD DEFAULT - BAJAJ AREA CHART CARD ||=========================== //
 
 const BajajAreaChartCard = () => {
-  const theme = useTheme();
-  const customization = useSelector((state) => state.customization);
-  const { navType } = customization;
+  const theme = useTheme()
+  const customization = useSelector((state) => state.customization)
+  const { navType } = customization
 
-  const orangeDark = theme.palette.secondary[800];
+  const orangeDark = theme.palette.secondary[800]
 
   useEffect(() => {
     const newSupportChart = {
       ...chartData.options,
       colors: [orangeDark],
       tooltip: {
-        theme: 'light'
-      }
-    };
-    ApexCharts.exec(`support-chart`, 'updateOptions', newSupportChart);
-  }, [navType, orangeDark]);
+        theme: 'light',
+      },
+    }
+    ApexCharts.exec(`support-chart`, 'updateOptions', newSupportChart)
+  }, [navType, orangeDark])
 
   return (
     <Card sx={{ bgcolor: 'secondary.light' }}>
@@ -57,7 +57,7 @@ const BajajAreaChartCard = () => {
       </Grid>
       <Chart {...chartData} />
     </Card>
-  );
-};
+  )
+}
 
-export default BajajAreaChartCard;
+export default BajajAreaChartCard

@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 // material-ui
-import { useTheme, styled } from '@mui/material/styles';
-import { Avatar, Box, ButtonBase, Card, Grid, InputAdornment, OutlinedInput, Popper } from '@mui/material';
+import { useTheme, styled } from '@mui/material/styles'
+import { Avatar, Box, ButtonBase, Card, Grid, InputAdornment, OutlinedInput, Popper } from '@mui/material'
 
 // third-party
-import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
+import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state'
 
 // project imports
-import Transitions from 'ui-component/extended/Transitions';
+import Transitions from 'ui-component/extended/Transitions'
 
 // assets
-import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons';
-import { shouldForwardProp } from '@mui/system';
+import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons'
+import { shouldForwardProp } from '@mui/system'
 
 // styles
 const PopperStyle = styled(Popper, { shouldForwardProp })(({ theme }) => ({
@@ -22,9 +22,9 @@ const PopperStyle = styled(Popper, { shouldForwardProp })(({ theme }) => ({
   top: '-55px !important',
   padding: '0 12px',
   [theme.breakpoints.down('sm')]: {
-    padding: '0 10px'
-  }
-}));
+    padding: '0 10px',
+  },
+}))
 
 const OutlineInputStyle = styled(OutlinedInput, { shouldForwardProp })(({ theme }) => ({
   width: 434,
@@ -33,17 +33,17 @@ const OutlineInputStyle = styled(OutlinedInput, { shouldForwardProp })(({ theme 
   paddingRight: 16,
   '& input': {
     background: 'transparent !important',
-    paddingLeft: '4px !important'
+    paddingLeft: '4px !important',
   },
   [theme.breakpoints.down('lg')]: {
-    width: 250
+    width: 250,
   },
   [theme.breakpoints.down('md')]: {
     width: '100%',
     marginLeft: 4,
-    background: '#fff'
-  }
-}));
+    background: '#fff',
+  },
+}))
 
 const HeaderAvatarStyle = styled(Avatar, { shouldForwardProp })(({ theme }) => ({
   ...theme.typography.commonAvatar,
@@ -52,14 +52,14 @@ const HeaderAvatarStyle = styled(Avatar, { shouldForwardProp })(({ theme }) => (
   color: theme.palette.secondary.dark,
   '&:hover': {
     background: theme.palette.secondary.dark,
-    color: theme.palette.secondary.light
-  }
-}));
+    color: theme.palette.secondary.light,
+  },
+}))
 
 // ==============================|| SEARCH INPUT - MOBILE||============================== //
 
 const MobileSearch = ({ value, setValue, popupState }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <OutlineInputStyle
@@ -90,8 +90,8 @@ const MobileSearch = ({ value, setValue, popupState }) => {
                   color: theme.palette.orange.dark,
                   '&:hover': {
                     background: theme.palette.orange.dark,
-                    color: theme.palette.orange.light
-                  }
+                    color: theme.palette.orange.light,
+                  },
                 }}
                 {...bindToggle(popupState)}
               >
@@ -104,20 +104,20 @@ const MobileSearch = ({ value, setValue, popupState }) => {
       aria-describedby="search-helper-text"
       inputProps={{ 'aria-label': 'weight' }}
     />
-  );
-};
+  )
+}
 
 MobileSearch.propTypes = {
   value: PropTypes.string,
   setValue: PropTypes.func,
-  popupState: PopupState
-};
+  popupState: PopupState,
+}
 
 // ==============================|| SEARCH INPUT ||============================== //
 
 const SearchSection = () => {
-  const theme = useTheme();
-  const [value, setValue] = useState('');
+  const theme = useTheme()
+  const [value, setValue] = useState('')
 
   return (
     <>
@@ -141,8 +141,8 @@ const SearchSection = () => {
                           background: '#fff',
                           [theme.breakpoints.down('sm')]: {
                             border: 0,
-                            boxShadow: 'none'
-                          }
+                            boxShadow: 'none',
+                          },
                         }}
                       >
                         <Box sx={{ p: 2 }}>
@@ -186,7 +186,7 @@ const SearchSection = () => {
         />
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default SearchSection;
+export default SearchSection

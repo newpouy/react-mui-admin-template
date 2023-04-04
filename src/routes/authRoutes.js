@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 
-import MinimalLayout from 'layout/MinimalLayout';
-import Login from 'views/Login';
-import Register from 'views/Register';
+import MinimalLayout from 'layout/MinimalLayout'
+import Login from 'views/Login'
+import Register from 'views/Register'
 
 const authRoutes = {
   path: '/',
@@ -10,13 +10,13 @@ const authRoutes = {
   children: [
     {
       path: '/login',
-      element: <Login />
+      element: <Login />,
     },
     {
       path: '/register',
-      element: <Register />
-    }
-  ]
-};
+      element: <Register />,
+    },
+  ],
+}
 
-export default authRoutes;
+export default authRoutes

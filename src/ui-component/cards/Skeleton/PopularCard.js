@@ -1,9 +1,9 @@
 // material-ui
-import { Card, CardContent, Grid } from '@mui/material';
-import Skeleton from '@mui/material/Skeleton';
+import { Card, CardContent, Grid } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
 
 // project imports
-import { gridSpacing } from 'store/constant';
+import { gridSpacing } from 'store/constant'
 
 // ==============================|| SKELETON - POPULAR CARD ||============================== //
 
@@ -150,6 +150,6 @@ const PopularCard = () => (
       <Skeleton variant="rectangular" height={25} width={75} />
     </CardContent>
   </Card>
-);
+)
 
-export default PopularCard;
+export default PopularCard

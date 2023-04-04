@@ -1,36 +1,36 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles'
+import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material'
 
 // project imports
-import BajajAreaChartCard from './BajajAreaChartCard';
-import MainCard from 'ui-component/cards/MainCard';
-import SkeletonPopularCard from 'ui-component/cards/Skeleton/PopularCard';
-import { gridSpacing } from 'store/constant';
+import BajajAreaChartCard from './BajajAreaChartCard'
+import MainCard from 'ui-component/cards/MainCard'
+import SkeletonPopularCard from 'ui-component/cards/Skeleton/PopularCard'
+import { gridSpacing } from 'store/constant'
 
 // assets
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined'
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined'
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined'
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
 const PopularCard = ({ isLoading }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -50,7 +50,7 @@ const PopularCard = ({ isLoading }) => {
                       fontSize="small"
                       sx={{
                         color: theme.palette.primary[200],
-                        cursor: 'pointer'
+                        cursor: 'pointer',
                       }}
                       aria-controls="menu-popular-card"
                       aria-haspopup="true"
@@ -65,11 +65,11 @@ const PopularCard = ({ isLoading }) => {
                       variant="selectedMenu"
                       anchorOrigin={{
                         vertical: 'bottom',
-                        horizontal: 'right'
+                        horizontal: 'right',
                       }}
                       transformOrigin={{
                         vertical: 'top',
-                        horizontal: 'right'
+                        horizontal: 'right',
                       }}
                     >
                       <MenuItem onClick={handleClose}> Today</MenuItem>
@@ -107,7 +107,7 @@ const PopularCard = ({ isLoading }) => {
                                 borderRadius: '5px',
                                 backgroundColor: theme.palette.success.light,
                                 color: theme.palette.success.dark,
-                                ml: 2
+                                ml: 2,
                               }}
                             >
                               <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
@@ -148,7 +148,7 @@ const PopularCard = ({ isLoading }) => {
                                 borderRadius: '5px',
                                 backgroundColor: theme.palette.orange.light,
                                 color: theme.palette.orange.dark,
-                                marginLeft: 1.875
+                                marginLeft: 1.875,
                               }}
                             >
                               <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
@@ -189,7 +189,7 @@ const PopularCard = ({ isLoading }) => {
                                 borderRadius: '5px',
                                 backgroundColor: theme.palette.success.light,
                                 color: theme.palette.success.dark,
-                                ml: 2
+                                ml: 2,
                               }}
                             >
                               <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
@@ -230,7 +230,7 @@ const PopularCard = ({ isLoading }) => {
                                 borderRadius: '5px',
                                 backgroundColor: theme.palette.orange.light,
                                 color: theme.palette.orange.dark,
-                                ml: 2
+                                ml: 2,
                               }}
                             >
                               <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
@@ -271,7 +271,7 @@ const PopularCard = ({ isLoading }) => {
                                 borderRadius: '5px',
                                 backgroundColor: theme.palette.orange.light,
                                 color: theme.palette.orange.dark,
-                                ml: 2
+                                ml: 2,
                               }}
                             >
                               <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
@@ -299,11 +299,11 @@ const PopularCard = ({ isLoading }) => {
         </MainCard>
       )}
     </>
-  );
-};
+  )
+}
 
 PopularCard.propTypes = {
-  isLoading: PropTypes.bool
-};
+  isLoading: PropTypes.bool,
+}
 
-export default PopularCard;
+export default PopularCard

@@ -1,22 +1,22 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 // material-ui
-import { styled, useTheme } from '@mui/material/styles';
-import { Avatar, Box, Grid, Menu, MenuItem, Typography } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles'
+import { Avatar, Box, Grid, Menu, MenuItem, Typography } from '@mui/material'
 
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import SkeletonEarningCard from 'ui-component/cards/Skeleton/EarningCard';
+import MainCard from 'ui-component/cards/MainCard'
+import SkeletonEarningCard from 'ui-component/cards/Skeleton/EarningCard'
 
 // assets
-import EarningIcon from 'assets/images/icons/earning.svg';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import GetAppTwoToneIcon from '@mui/icons-material/GetAppOutlined';
-import FileCopyTwoToneIcon from '@mui/icons-material/FileCopyOutlined';
-import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfOutlined';
-import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
+import EarningIcon from 'assets/images/icons/earning.svg'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
+import GetAppTwoToneIcon from '@mui/icons-material/GetAppOutlined'
+import FileCopyTwoToneIcon from '@mui/icons-material/FileCopyOutlined'
+import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfOutlined'
+import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined'
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.dark,
@@ -34,8 +34,8 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     right: -95,
     [theme.breakpoints.down('sm')]: {
       top: -105,
-      right: -140
-    }
+      right: -140,
+    },
   },
   '&:before': {
     content: '""',
@@ -49,25 +49,25 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     opacity: 0.5,
     [theme.breakpoints.down('sm')]: {
       top: -155,
-      right: -70
-    }
-  }
-}));
+      right: -70,
+    },
+  },
+}))
 
 // ===========================|| DASHBOARD DEFAULT - EARNING CARD ||=========================== //
 
 const EarningCard = ({ isLoading }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -86,7 +86,7 @@ const EarningCard = ({ isLoading }) => {
                         ...theme.typography.commonAvatar,
                         ...theme.typography.largeAvatar,
                         backgroundColor: theme.palette.secondary[800],
-                        mt: 1
+                        mt: 1,
                       }}
                     >
                       <img src={EarningIcon} alt="Notification" />
@@ -100,7 +100,7 @@ const EarningCard = ({ isLoading }) => {
                         ...theme.typography.mediumAvatar,
                         backgroundColor: theme.palette.secondary.dark,
                         color: theme.palette.secondary[200],
-                        zIndex: 1
+                        zIndex: 1,
                       }}
                       aria-controls="menu-earning-card"
                       aria-haspopup="true"
@@ -117,11 +117,11 @@ const EarningCard = ({ isLoading }) => {
                       variant="selectedMenu"
                       anchorOrigin={{
                         vertical: 'bottom',
-                        horizontal: 'right'
+                        horizontal: 'right',
                       }}
                       transformOrigin={{
                         vertical: 'top',
-                        horizontal: 'right'
+                        horizontal: 'right',
                       }}
                     >
                       <MenuItem onClick={handleClose}>
@@ -151,7 +151,7 @@ const EarningCard = ({ isLoading }) => {
                         cursor: 'pointer',
                         ...theme.typography.smallAvatar,
                         backgroundColor: theme.palette.secondary[200],
-                        color: theme.palette.secondary.dark
+                        color: theme.palette.secondary.dark,
                       }}
                     >
                       <ArrowUpwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
@@ -164,7 +164,7 @@ const EarningCard = ({ isLoading }) => {
                   sx={{
                     fontSize: '1rem',
                     fontWeight: 500,
-                    color: theme.palette.secondary[200]
+                    color: theme.palette.secondary[200],
                   }}
                 >
                   Total Earning
@@ -175,11 +175,11 @@ const EarningCard = ({ isLoading }) => {
         </CardWrapper>
       )}
     </>
-  );
-};
+  )
+}
 
 EarningCard.propTypes = {
-  isLoading: PropTypes.bool
-};
+  isLoading: PropTypes.bool,
+}
 
-export default EarningCard;
+export default EarningCard

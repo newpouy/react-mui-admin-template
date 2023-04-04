@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // material-ui
-import { styled, useTheme } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles'
 import {
   Avatar,
   Card,
@@ -13,24 +13,24 @@ import {
   ListItemAvatar,
   ListItemText,
   Typography,
-  linearProgressClasses
-} from '@mui/material';
+  linearProgressClasses,
+} from '@mui/material'
 
 // assets
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined'
 
 // styles
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 30,
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.primary.main
-  }
-}));
+    backgroundColor: theme.palette.primary.main,
+  },
+}))
 
 const CardStyle = styled(Card)(({ theme }) => ({
   background: theme.palette.primary.light,
@@ -45,14 +45,14 @@ const CardStyle = styled(Card)(({ theme }) => ({
     background: theme.palette.primary[200],
     borderRadius: '50%',
     top: '-105px',
-    right: '-96px'
-  }
-}));
+    right: '-96px',
+  },
+}))
 
 // ==============================|| PROGRESS BAR WITH LABEL ||============================== //
 
 function LinearProgressWithLabel({ value, ...others }) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Grid container direction="column" spacing={1} sx={{ mt: 1.5 }}>
@@ -72,17 +72,17 @@ function LinearProgressWithLabel({ value, ...others }) {
         <BorderLinearProgress variant="determinate" value={value} {...others} />
       </Grid>
     </Grid>
-  );
+  )
 }
 
 LinearProgressWithLabel.propTypes = {
-  value: PropTypes.number
-};
+  value: PropTypes.number,
+}
 
 // ==============================|| SIDEBAR MENU Card ||============================== //
 
 const MenuCard = () => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <CardStyle>
@@ -99,7 +99,7 @@ const MenuCard = () => {
                   border: 'none',
                   borderColor: theme.palette.primary.main,
                   background: '#fff',
-                  marginRight: '12px'
+                  marginRight: '12px',
                 }}
               >
                 <TableChartOutlinedIcon fontSize="inherit" />
@@ -119,7 +119,7 @@ const MenuCard = () => {
         <LinearProgressWithLabel value={80} />
       </CardContent>
     </CardStyle>
-  );
-};
+  )
+}
 
-export default MenuCard;
+export default MenuCard

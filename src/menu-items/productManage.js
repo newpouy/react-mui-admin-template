@@ -1,5 +1,5 @@
 // assets
-import { IconBuildingStore } from '@tabler/icons';
+import { IconBuildingStore } from '@tabler/icons'
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
@@ -14,9 +14,9 @@ const productManage = {
       type: 'item',
       url: '/product',
       icon: IconBuildingStore,
-      breadcrumbs: false
-    }
-  ]
-};
+      breadcrumbs: false,
+    },
+  ],
+}
 
-export default productManage;
+export default productManage
