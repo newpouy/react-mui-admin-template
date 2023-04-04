@@ -59,7 +59,7 @@ const AuthLogin = ({ ...others }) => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           alert('hihihi');
-          dispatch(loginAction());
+          dispatch(loginAction({ username: 'hi', password: 'fsa'}));
           try {
             if (scriptedRef.current) {
               setStatus({ success: true });

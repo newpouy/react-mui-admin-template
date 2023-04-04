@@ -18,6 +18,7 @@ export const register = createAsyncThunk('auth/register', async ({ username, ema
 });
 
 export const loginAction = createAsyncThunk('auth/login', async ({ username, password }, thunkAPI) => {
+  console.log('in loginAction', username, password)
   try {
     const data = await AuthService.login(username, password);
     return { user: data };
