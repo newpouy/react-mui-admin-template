@@ -31,7 +31,12 @@ const responserHandler = (response) => {
 }
 
 const errorHandler = (error) => {
-  console.log('in error handle')
+  console.log('in error handle', error)
+  if (error.response.status === 401) {
+    // alert('권한이 없습니다.')
+    localStorage.removeItem('token')
+    location.href = '/login'
+  }
 }
 api.interceptors.response.use(responserHandler, errorHandler)
 
