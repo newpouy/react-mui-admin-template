@@ -7,11 +7,9 @@ import {
   Box,
   Button,
   Checkbox,
-  Divider,
   FormControl,
   FormControlLabel,
   FormHelperText,
-  Grid,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -20,34 +18,23 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material';
-
-// third party
-import * as Yup from 'yup';
-import { Formik } from 'formik';
-
-// project imports
-import useScriptRef from 'hooks/useScriptRef';
-import AnimateButton from 'ui-component/extended/AnimateButton';
-
-// assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import Google from 'assets/images/icons/social-google.svg';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 
-import { login } from '../../../store/authSlice';
+import useScriptRef from 'hooks/useScriptRef';
+import AnimateButton from 'ui-component/extended/AnimateButton';
+import { loginAction } from 'store/authSlice';
 
-const FirebaseLogin = ({ ...others }) => {
+const AuthLogin = ({ ...others }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const scriptedRef = useScriptRef();
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
   const customization = useSelector((state) => state.customization);
   const [checked, setChecked] = useState(true);
-
-  const googleHandler = async () => {
-    console.error('Login');
-  };
 
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
@@ -72,7 +59,7 @@ const FirebaseLogin = ({ ...others }) => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           alert('hihihi');
-          dispatch(login());
+          dispatch(loginAction());
           try {
             if (scriptedRef.current) {
               setStatus({ success: true });
@@ -171,4 +158,4 @@ const FirebaseLogin = ({ ...others }) => {
   );
 };
 
-export default FirebaseLogin;
+export default AuthLogin;
