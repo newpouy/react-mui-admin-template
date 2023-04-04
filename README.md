@@ -1,1 +1,5 @@
-# React-MUI-Admin-Template helped by https://github.com/codedthemes/berry-free-react-admin-template
+# RedKnot-Admin-React
+
+# node v16.19.0
+
+# npm 8.19.3
